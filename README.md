@@ -1,3 +1,12 @@
+# Fees Manager
+
+Admin demo for council fee updates: Dashboard, bulk upload (mock), and validation UI. Built with Vite, React, TypeScript, Tailwind, and ShadCN.
+
+- **Run locally:** `npm run dev` then open **http://localhost:5173/fees-manager/** (app uses base path `/fees-manager` for deployment).
+- **Deploy:** See [docs/GITHUB_SETUP.md](docs/GITHUB_SETUP.md) for GitHub Pages. Enable Pages from **Settings → Pages → Source: GitHub Actions**. Live URL: `https://<username>.github.io/fees-manager/`.
+
+---
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
