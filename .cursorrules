@@ -1,0 +1,37 @@
+# Fees Manager – Design system and build order
+
+Use this as the permanent instruction set for grid, theme, naming, and component order. When spacing or layout is wrong, align to these rules.
+
+## 8px grid
+
+- **Spacing:** All padding, margin, and gap values must use multiples of **8px** (e.g. 8, 16, 24, 32, 40, 48). Use **4px** only when necessary for fine alignment (e.g. tight icon padding).
+- **Tailwind:** Prefer `p-2` (8px), `p-4` (16px), `p-6` (24px), `gap-2`, `gap-4`, `space-y-4`, etc. Avoid arbitrary values like `p-[13px]` unless matching a specific Figma token that has been documented.
+- **When correcting layout:** If the user says spacing is off, respond with: "Align to the 8px grid; use multiples of 8 for padding/margin/gap."
+
+## Dark theme
+
+- **Default:** The Fees Manager UI is **dark theme**. Use tokens from `src/index.css`: `bg-background`, `text-foreground`, `text-muted-foreground`, `border-border`, `bg-card`, `bg-muted`, etc. The `.dark` class and CSS variables are already defined.
+- **Status colours:** Use semantic tokens for success/error/warning (e.g. `text-destructive`, chart/status colours from the theme). Do not hardcode hex for status.
+- **Contrast:** Ensure text and interactive elements meet sufficient contrast against the dark background (theme tokens are set up for this).
+
+## ShadCN preferences
+
+- **Source:** Use **only** components from `src/components/ui`. Do not build custom buttons, cards, inputs, or tables with raw `div` and Tailwind.
+- **Adding components:** If a pattern is missing, run `npx shadcn@latest add <component>` (e.g. `badge`, `select`, `label`) then implement using that component.
+- **Variants:** Use ShadCN variant props (e.g. `variant="default"`, `variant="destructive"`) rather than overriding with custom classes. Extend via the component’s `className` prop only when needed.
+
+## Naming
+
+- **Components and variants:** Use **semantic names**, not placeholders. Prefer names like `FeeTableRow`, `UpdateStatusBadge`, `DashboardMetricCard`. For variants, use names like `Button/Default`, `Card/Default`, or prop-based variants (e.g. `status="success"`), not "Card copy 2" or "Button copy 3".
+- **Files:** Component files are PascalCase (e.g. `FeeTableRow.tsx`). Folders for feature components can be kebab-case (e.g. `fee-table/`).
+- **Exports:** Export components with a clear name that matches the file (e.g. `FeeTableRow` from `FeeTableRow.tsx`).
+
+## Component-building order
+
+Build **inside out** so small errors are fixed once and reused everywhere:
+
+1. **Atomic:** Build or confirm base pieces first: Buttons, Tags/Badges, form primitives (Input, Label, Select) using design tokens from `src/index.css`. Ensure they match the 8px grid and dark theme.
+2. **Molecules:** Compose atoms into small blocks: e.g. `FeeTableRow` (row with cells, status badge, actions), `UpdateCard` (card showing one update with status and link), `FormField` (label + input + error).
+3. **Organisms / screens:** Assemble molecules into full screens: e.g. Fees List (table of `FeeTableRow`), Dashboard (metrics + list of `UpdateCard`), New fee update (form + upload area).
+
+Do not build a full screen (e.g. Dashboard) with one-off markup. Extract repeated patterns into molecules first, then compose the screen. If a Button or Tag is wrong, fix it in one place so it updates everywhere.

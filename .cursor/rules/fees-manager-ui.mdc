@@ -5,6 +5,7 @@ alwaysApply: true
 
 # Fees Manager – UI and Figma
 
+- **Design system:** For 8px grid, dark theme defaults, naming conventions, and component build order (atomic → molecules → organisms), see the project root [.cursorrules](.cursorrules).
 - **ShadCN only:** When building UI from Figma or adding new screens, use **only** components from `src/components/ui` (Button, Card, Input, Table, Dialog, DropdownMenu, Tabs, etc.). Do not create custom `div`-based UI with long Tailwind class strings to mimic buttons, cards, or forms. If a pattern is missing, add the ShadCN component with `npx shadcn@latest add <component>` then use it.
 - **Theme tokens:** Use CSS variables and Tailwind theme tokens from [src/index.css](src/index.css) (e.g. `bg-background`, `text-foreground`, `text-muted-foreground`, `border-border`). Do not hardcode hex values in components.
 - **Figma alignment:** Match layout, spacing, and hierarchy from the [Fees Manager Figma file](https://www.figma.com/design/NZKq7OKJFGpDweByzw7VBR/Fees-Manager?node-id=197-2170&m=dev). When using Figma MCP, prompt with: "Build using ONLY pre-installed ShadCN components in src/components/ui. Do not write custom Tailwind UI elements."
