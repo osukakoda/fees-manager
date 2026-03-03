@@ -1,0 +1,12 @@
+---
+description: Product scope, entry point, state, and mock behaviour for Fees Manager demo
+alwaysApply: true
+---
+
+# Fees Manager – Project and product
+
+- **Product spec:** Use [docs/PRD.md](docs/PRD.md) as the source of truth for scope, flows, and success criteria. Do not add resident-facing UI or real backend.
+- **Stack:** Vite, React, TypeScript, Tailwind CSS, ShadCN UI. Use the existing `@/*` alias and `src/components/ui` for ShadCN components.
+- **Entry point:** The first screen is the **Dashboard / overview**, pre-populated with static data. A prominent **"Start New Update"** CTA leads to the New fee update (upload) flow. Do not make the upload form the initial route.
+- **Global state:** Demo data (fee updates, fees list) must live in **global state** (e.g. React Context or Zustand) so it persists across Dashboard, Fee List, and Update Detail when navigating. Do not rely on local component state alone for cross-screen data.
+- **Mock behaviour:** On "Upload", simulate ~2s processing, then either (A) add the new update to global state, or (B) return 3 predefined validation errors so the error UI is visible without a real file. Hardcode the 3 sample errors (message + field/row) for consistency.
