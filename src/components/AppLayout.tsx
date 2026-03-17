@@ -166,11 +166,6 @@ export function AppLayout({ children, activeTab = 'Overview' }: AppLayoutProps) 
               <button className="flex items-center justify-center size-12 sm:size-9 rounded-full border border-[var(--border-subtle)] bg-[var(--slate-800)] p-3 sm:p-2 hover:bg-[var(--surface-hover-icon)] transition-colors duration-150">
                 <BookOpen className="size-5 text-[color:var(--slate-300)]" />
               </button>
-              <img
-                src="/avatar.jpg"
-                alt="Alex Morgan"
-                className="size-9 sm:size-8 rounded-full object-cover object-top shrink-0"
-              />
             </div>
           </div>
         </div>
@@ -228,7 +223,7 @@ export function AppLayout({ children, activeTab = 'Overview' }: AppLayoutProps) 
       </main>
 
       {/* Fixed help button */}
-      <button className="fixed bottom-6 right-6 flex items-center justify-center size-9 rounded-lg bg-[var(--slate-600)] text-[color:var(--slate-50)] shadow-[var(--shadow-floating)] hover:brightness-110 transition-all duration-150" aria-label="Help">
+      <button className="fixed bottom-6 right-6 flex items-center justify-center size-9 rounded-full bg-[var(--slate-600)] text-[color:var(--slate-50)] shadow-[var(--shadow-floating)] hover:brightness-110 transition-all duration-150" aria-label="Help">
         <HelpCircle className="size-5" />
       </button>
     </div>
