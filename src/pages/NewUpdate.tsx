@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -108,20 +108,29 @@ export function NewUpdate() {
   }
 
   return (
-    <div className="min-h-screen bg-background p-6 md:p-8">
-      <div className="mx-auto max-w-2xl space-y-6">
-        <div className="flex items-center gap-4">
-          <Button variant="ghost" size="sm" asChild>
-            <Link to="/">Back</Link>
-          </Button>
-          <h1 className="text-2xl font-semibold">New fee update</h1>
+    <div className="min-h-screen w-full bg-background px-4 sm:px-6 lg:px-8 pb-16 sm:pb-24 pt-4 sm:pt-8">
+      <div className="mx-auto w-full max-w-[var(--content-max-width)] space-y-6 sm:space-y-8">
+        <div className="flex flex-col gap-2">
+          <div className="flex items-center gap-4">
+            <Button variant="ghost" size="sm" asChild>
+              <Link to="/">Back</Link>
+            </Button>
+          </div>
+          <h1 className="text-[length:var(--text-h4)] font-normal leading-8 tracking-[0.24px] text-foreground">
+            New fee update
+          </h1>
+          <p className="text-sm font-medium leading-5 text-muted-foreground">
+            Add a new batch of fees by uploading a template or filling in the details below.
+          </p>
         </div>
 
         {upload.isUploading ? (
-          <Card>
-            <CardContent className="pt-6">
-              <p className="text-muted-foreground">Processing upload… {upload.progress}%</p>
-              <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-muted">
+          <Card className="rounded-2xl border-border shadow-[var(--shadow-card-default)]">
+            <CardContent className="gap-4 px-6 py-6">
+              <p className="text-base font-medium leading-6 text-foreground">
+                Processing upload… {upload.progress}%
+              </p>
+              <div className="h-2 w-full overflow-hidden rounded-full bg-muted">
                 <div
                   className="h-full bg-primary transition-all duration-300"
                   style={{ width: `${upload.progress}%` }}
@@ -130,37 +139,41 @@ export function NewUpdate() {
             </CardContent>
           </Card>
         ) : upload.errors.length > 0 ? (
-          <Card className="border-destructive/50">
-            <CardHeader>
-              <CardTitle className="text-destructive">Validation errors</CardTitle>
+          <Card className="rounded-2xl border-border border-destructive/50 shadow-[var(--shadow-card-default)]">
+            <CardHeader className="gap-2 px-6 pt-6">
+              <CardTitle className="text-lg font-medium text-destructive">
+                Validation errors
+              </CardTitle>
               <p className="text-sm text-muted-foreground">
                 Some fees have errors. Please review and fix them to proceed.
               </p>
             </CardHeader>
-            <CardContent className="space-y-4">
-              <ul className="list-inside list-disc space-y-2 text-sm">
+            <CardContent className="space-y-4 px-6 pb-6">
+              <ul className="list-inside list-disc space-y-2 text-sm text-foreground">
                 {upload.errors.map((err, i) => (
-                  <li key={i} className="text-foreground">
+                  <li key={i}>
                     {err.row != null ? `Row ${err.row}: ` : ''}
                     <span className="font-medium">{err.field}</span> — {err.message}
                   </li>
                 ))}
               </ul>
-              <Button
-                type="button"
-                onClick={() => clearUploadErrors()}
-              >
+              <Button type="button" onClick={() => clearUploadErrors()}>
                 Try again
               </Button>
             </CardContent>
           </Card>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>Details</CardTitle>
+          <form onSubmit={handleSubmit} className="space-y-8">
+            <Card className="rounded-2xl border-border shadow-[var(--shadow-card-default)]">
+              <CardHeader className="gap-2 px-6 pt-6">
+                <CardTitle className="text-lg font-medium leading-7 text-foreground">
+                  Details
+                </CardTitle>
+                <CardDescription className="text-sm text-muted-foreground">
+                  Name, reference and status for this fee update
+                </CardDescription>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="space-y-4 px-6 pb-6">
                 <div className="space-y-2">
                   <Label htmlFor="name">Update name (required)</Label>
                   <Input
@@ -212,14 +225,16 @@ export function NewUpdate() {
               </CardContent>
             </Card>
 
-            <Card>
-              <CardHeader>
-                <CardTitle>Upload template</CardTitle>
-                <p className="text-sm text-muted-foreground">
+            <Card className="rounded-2xl border-border shadow-[var(--shadow-card-default)]">
+              <CardHeader className="gap-2 px-6 pt-6">
+                <CardTitle className="text-lg font-medium leading-7 text-foreground">
+                  Upload template
+                </CardTitle>
+                <CardDescription className="text-sm text-muted-foreground">
                   Supported file types: .xlsx, .csv
-                </p>
+                </CardDescription>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="space-y-4 px-6 pb-6">
                 <div className="flex items-center gap-2">
                   <input
                     type="checkbox"

@@ -4,20 +4,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Design tokens – replace with your Figma values in Phase 0/1 */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -50,60 +37,136 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* Figma slate palette */
+  --slate-50: #f8fafc;
+  --slate-100: #f1f5f9;
+  --slate-200: #e2e8f0;
+  --slate-300: #cbd5e1;
+  --slate-400: #94a3b8;
+  --slate-600: #475569;
+  --slate-700: #334155;
+  --slate-800: #1e293b;
+  --slate-900: #0f172a;
+
+  /* Elevation shadows */
+  --shadow-card-metrics: 0 1px 4px rgba(0, 0, 0, 0.15);
+  --shadow-card-default: 0 1px 4px rgba(0, 0, 0, 0.15);
+  --shadow-header: 0 4px 24px rgba(0, 0, 0, 0.3);
+  --shadow-dropdown: 0 8px 20px rgba(0, 0, 0, 0.25);
+  --shadow-floating: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+  /* Brand accent */
+  --brand:       #1d6fbc;
+  --brand-light: #5ba3e0;
+
+  /* Figma success/destructive */
+  --success: #007a36;
+  --destructive-figma: #b3001b;
+
+  /* Adaptive surface/border tokens — flip in light mode */
+  --border-subtle: rgba(255, 255, 255, 0.10);
+  --border-faint:  rgba(255, 255, 255, 0.07);
+  --surface-hover: rgba(255, 255, 255, 0.06);
+  --surface-hover-icon: rgba(255, 255, 255, 0.08);
+  --surface-hover-row: rgba(255, 255, 255, 0.04);
+  --underline-muted: rgba(255, 255, 255, 0.20);
+
+  /* Avatar — fixed so it stays visible in both themes */
+  --avatar-from: #475569;
+  --avatar-to:   #334155;
+  --avatar-text: #e2e8f0;
+
+  /* Focus ring */
+  --focus-ring-color: #5ba3e0;
+
+  /* Main content max-width per Figma */
+  --content-max-width: 1026px;
+
+  /* Type scale — rounded to standard dashboard sizes */
+  --text-h1: 3rem;       /* 48px  — metric values */
+  --text-h2: 2.488rem;   /* 39.8px */
+  --text-h3: 2.074rem;   /* 33.2px */
+  --text-h4: 1.5rem;     /* 24px  — section headings */
+  --text-h5: 1.44rem;    /* 23px */
+  --text-h6: 1.125rem;   /* 18px  — card headings */
+  --text-base: 1rem;     /* 16px  — card body */
+  --text-sm: 0.875rem;   /* 14px  — UI / body text */
+  --text-xs: 0.75rem;    /* 12px  — captions / detail */
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.dark {
+  --background: #0f172a;
+  --foreground: oklch(0.985 0 0);
+  --card: #1e293b;
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: #475569;
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+[data-theme="light"] {
+  /* Slate palette — semantically inverted for light backgrounds */
+  --slate-50:  #0f172a;
+  --slate-100: #1e293b;
+  --slate-200: #334155;
+  --slate-300: #64748b;
+  --slate-400: #64748b;
+  --slate-600: #e2e8f0;
+  --slate-700: #f1f5f9;
+  --slate-800: #ffffff;
+  --slate-900: #f0f4f8;
+
+  /* Adaptive surfaces */
+  --border-subtle: rgba(0, 0, 0, 0.09);
+  --border-faint:  rgba(0, 0, 0, 0.06);
+  --surface-hover: rgba(0, 0, 0, 0.04);
+  --surface-hover-icon: rgba(0, 0, 0, 0.05);
+  --surface-hover-row: rgba(0, 0, 0, 0.03);
+  --underline-muted: rgba(0, 0, 0, 0.20);
+
+  /* Avatar stays dark so it's visible on white cards */
+  --avatar-from: #475569;
+  --avatar-to:   #334155;
+  --avatar-text: #f8fafc;
+
+  /* Brand accent — same value both modes, --brand-light matches --brand on light */
+  --brand:       #1d6fbc;
+  --brand-light: #1d6fbc;
+
+  /* Focus ring */
+  --focus-ring-color: #1d6fbc;
+
+  /* Lighter shadows */
+  --shadow-card-default: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-card-metrics: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-header: 0 1px 8px rgba(0, 0, 0, 0.08);
+  --shadow-dropdown: 0 4px 16px rgba(0, 0, 0, 0.10);
+  --shadow-floating: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
 
 @theme inline {
@@ -145,40 +208,23 @@ button:focus-visible {
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-dm: "DM Sans", system-ui, sans-serif;
+  --font-switzer: "Switzer", system-ui, sans-serif;
 }
 
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+body {
+  margin: 0;
+  width: 100%;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
 }
 
 @layer base {
@@ -188,4 +234,20 @@ button:focus-visible {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Keyboard focus rings — applies to all interactive elements */
+:focus-visible {
+  outline: 2px solid var(--focus-ring-color);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Hide scrollbar for nav tabs */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }

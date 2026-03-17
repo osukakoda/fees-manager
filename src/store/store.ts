@@ -43,6 +43,8 @@ interface FeesStore {
   addUpdate: (update: FeeUpdate, newFees: Fee[]) => void
   setUploadState: (state: Partial<UploadState>) => void
   clearUploadErrors: () => void
+  updateFee: (feeId: string, patch: Partial<Pick<Fee, 'feeName' | 'category' | 'newAmount'>>) => void
+  removeFee: (feeId: string) => void
 }
 
 const seedUpdates: FeeUpdate[] = [
@@ -110,4 +112,54 @@ export const useFeesStore = create<FeesStore>((set) => ({
     set((state) => ({
       upload: { ...state.upload, errors: [] },
     })),
+  updateFee: (feeId, patch) =>
+    set((state) => {
+      const fee = state.fees.find((f) => f.id === feeId)
+      if (!fee) return state
+      const updated = { ...fee, ...patch }
+      if (patch.newAmount != null && fee.oldAmount != null) {
+        updated.change = Number((updated.newAmount - fee.oldAmount).toFixed(2))
+      } else if (patch.newAmount != null) {
+        updated.change = updated.newAmount
+      }
+      return {
+        fees: state.fees.map((f) => (f.id === feeId ? updated : f)),
+      }
+    }),
+  removeFee: (feeId) =>
+    set((state) => {
+      const fee = state.fees.find((f) => f.id === feeId)
+      if (!fee) return state
+      return {
+        fees: state.fees.filter((f) => f.id !== feeId),
+        updates: state.updates.map((u) =>
+          u.id === fee.updateId
+            ? {
+                ...u,
+                totalFees: Math.max(0, u.totalFees - 1),
+                feeIds: u.feeIds.filter((id) => id !== feeId),
+              }
+            : u
+        ),
+      }
+    }),
+}))
+
+// ─── Theme store ──────────────────────────────────────────────────────────────
+interface ThemeStore {
+  theme: 'dark' | 'light'
+  toggleTheme: () => void
+}
+
+export const useThemeStore = create<ThemeStore>((set) => ({
+  theme: (typeof window !== 'undefined'
+    ? (localStorage.getItem('cms-theme') as 'dark' | 'light' | null)
+    : null) ?? 'dark',
+  toggleTheme: () =>
+    set((state) => {
+      const next: 'dark' | 'light' = state.theme === 'dark' ? 'light' : 'dark'
+      localStorage.setItem('cms-theme', next)
+      document.documentElement.setAttribute('data-theme', next)
+      return { theme: next }
+    }),
 }))
