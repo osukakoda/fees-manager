@@ -8,16 +8,13 @@ import { UpdateDetail } from '@/pages/UpdateDetail'
 import { FeesList } from '@/pages/FeesList'
 import { FeesManager } from '@/pages/FeesManager'
 
-const router = createBrowserRouter(
-  [
-    { path: '/', element: <Dashboard /> },
-    { path: '/new-update', element: <NewUpdate /> },
-    { path: '/updates/:id', element: <UpdateDetail /> },
-    { path: '/fees', element: <FeesList /> },
-    { path: '/fees-manager', element: <FeesManager /> },
-  ],
-  { basename: '/council-cms' }
-)
+const router = createBrowserRouter([
+  { path: '/', element: <Dashboard /> },
+  { path: '/new-update', element: <NewUpdate /> },
+  { path: '/updates/:id', element: <UpdateDetail /> },
+  { path: '/fees', element: <FeesList /> },
+  { path: '/fees-manager', element: <FeesManager /> },
+])
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
