@@ -1,7 +1,6 @@
 import { type ReactNode, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import {
-  Home,
   ChevronDown,
   ExternalLink,
   Search,
@@ -136,15 +135,14 @@ export function AppLayout({ children, activeTab = 'Overview' }: AppLayoutProps) 
       <header className="sticky top-0 z-10 w-full flex flex-col gap-6 sm:gap-8 pt-3 sm:pt-6 px-3 sm:px-6 lg:px-8 bg-[var(--slate-800)] shadow-[var(--shadow-header)]">
         {/* Top bar */}
         <div className="flex gap-3 sm:gap-6 items-center w-full">
-          {/* Left: breadcrumb + view site */}
+          {/* Left: wordmark */}
           <div className="flex gap-2 items-center flex-1 min-w-0">
-            <button className="flex gap-1.5 sm:gap-2 items-center py-1 pr-2 sm:pr-4 text-[length:var(--text-sm)] font-medium text-[color:var(--slate-300)] hover:text-[color:var(--slate-50)] transition-colors duration-150">
-              <Home className="size-4 shrink-0" />
+            <button className="flex gap-2 sm:gap-2.5 items-center py-1 pr-2 sm:pr-4 text-[length:var(--text-sm)] font-medium text-[color:var(--slate-300)] hover:text-[color:var(--slate-50)] transition-colors duration-150">
+              <span
+                className="flex items-center justify-center w-6 h-6 rounded bg-[var(--brand)] text-white font-bold leading-none shrink-0"
+                style={{ fontFamily: 'var(--font-switzer)', fontSize: '10px', letterSpacing: '0.02em' }}
+              >OC</span>
               <span className="truncate">Our council</span>
-            </button>
-            <button className="hidden lg:flex gap-2 items-center px-2 py-1 rounded-md bg-[var(--slate-700)] text-[length:var(--text-xs)] font-medium text-[color:var(--slate-50)] hover:bg-[var(--slate-600)] transition-colors duration-150">
-              View Site
-              <ExternalLink className="size-4" />
             </button>
           </div>
 
@@ -156,6 +154,10 @@ export function AppLayout({ children, activeTab = 'Overview' }: AppLayoutProps) 
               <span className="text-[length:var(--text-xs)] font-medium text-[color:var(--slate-300)]">⌘F</span>
             </div>
             <div className="flex gap-2 items-center">
+              <button className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[var(--slate-700)] text-[length:var(--text-xs)] font-medium text-[color:var(--slate-50)] hover:bg-[var(--slate-600)] transition-colors duration-150 shrink-0">
+                <span className="hidden sm:inline">View Site</span>
+                <ExternalLink className="size-3.5" />
+              </button>
               <button
                 onClick={toggleTheme}
                 aria-label="Toggle theme"
@@ -172,7 +174,7 @@ export function AppLayout({ children, activeTab = 'Overview' }: AppLayoutProps) 
                 <BookOpen className="size-5 text-[color:var(--slate-300)]" />
               </button>
               <img
-                src="/avatar.jpg"
+                src="https://randomuser.me/api/portraits/men/44.jpg"
                 alt="User avatar"
                 className="size-12 sm:size-9 rounded-full object-cover object-top shrink-0"
               />
@@ -229,7 +231,7 @@ export function AppLayout({ children, activeTab = 'Overview' }: AppLayoutProps) 
       </main>
 
       {/* Fixed help button */}
-      <button className="fixed bottom-6 right-6 flex gap-2 items-center h-9 px-2 rounded-full bg-[var(--slate-600)] text-[color:var(--slate-50)] shadow-[var(--shadow-floating)] hover:brightness-110 transition-all duration-150">
+      <button className="fixed bottom-6 right-6 flex gap-2 items-center h-9 px-3 rounded-lg bg-[var(--slate-600)] text-[color:var(--slate-50)] shadow-[var(--shadow-floating)] hover:brightness-110 transition-all duration-150">
         <HelpCircle className="size-5" />
         <span className="text-[length:var(--text-sm)] font-medium">Help</span>
       </button>
