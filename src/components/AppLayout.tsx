@@ -135,14 +135,11 @@ export function AppLayout({ children, activeTab = 'Overview' }: AppLayoutProps) 
       <header className="sticky top-0 z-10 w-full flex flex-col gap-6 sm:gap-8 pt-3 sm:pt-6 px-3 sm:px-6 lg:px-8 bg-[var(--slate-800)] shadow-[var(--shadow-header)]">
         {/* Top bar */}
         <div className="flex gap-3 sm:gap-6 items-center w-full">
-          {/* Left: wordmark */}
+          {/* Left: wordmark — user avatar + name */}
           <div className="flex gap-2 items-center flex-1 min-w-0">
             <button className="flex gap-2 sm:gap-2.5 items-center py-1 pr-2 sm:pr-4 text-[length:var(--text-sm)] font-medium text-[color:var(--slate-300)] hover:text-[color:var(--slate-50)] transition-colors duration-150">
-              <span
-                className="flex items-center justify-center w-6 h-6 rounded bg-[var(--brand)] text-white font-bold leading-none shrink-0"
-                style={{ fontFamily: 'var(--font-switzer)', fontSize: '10px', letterSpacing: '0.02em' }}
-              >OC</span>
-              <span className="truncate">Our council</span>
+              <img src="/avatar.jpg" alt="" className="size-6 rounded-full object-cover object-top shrink-0" />
+              <span className="truncate" style={{ fontFamily: 'var(--font-switzer)' }}>Alex Morgan</span>
             </button>
           </div>
 
@@ -170,16 +167,16 @@ export function AppLayout({ children, activeTab = 'Overview' }: AppLayoutProps) 
                 <BookOpen className="size-5 text-[color:var(--slate-300)]" />
               </button>
               <img
-                src="https://randomuser.me/api/portraits/men/44.jpg"
-                alt="User avatar"
-                className="size-10 sm:size-8 rounded-full object-cover object-top shrink-0"
+                src="/avatar.jpg"
+                alt="Alex Morgan"
+                className="size-9 sm:size-8 rounded-full object-cover object-top shrink-0"
               />
             </div>
           </div>
         </div>
 
         {/* Nav tabs */}
-        <nav className="flex gap-6 lg:gap-8 items-center w-full overflow-x-auto scrollbar-hide">
+        <nav className="flex gap-12 lg:gap-8 items-center w-full overflow-x-auto scrollbar-hide">
           {NAV_TABS.map(({ label, to }) => {
             // Visibility: overflow tabs are hidden until their breakpoint
             const visClass =
@@ -219,7 +216,7 @@ export function AppLayout({ children, activeTab = 'Overview' }: AppLayoutProps) 
               <button key={label} className={classes}>{label}</button>
             )
           })}
-          <button className="ml-auto shrink-0 flex items-center gap-1.5 px-3 py-1.5 mb-3 rounded-md bg-[var(--slate-700)] text-[length:var(--text-xs)] font-medium text-[color:var(--slate-50)] hover:bg-[var(--slate-600)] transition-colors duration-150">
+          <button className="ml-auto shrink-0 flex items-center gap-1.5 px-3 py-1.5 mb-3 rounded-md border border-[var(--brand)] text-[length:var(--text-xs)] font-medium text-[color:var(--brand-light)] hover:bg-[rgba(29,111,188,0.08)] hover:text-[color:var(--slate-50)] transition-colors duration-150">
             <Globe className="size-3.5" />
             View Site
           </button>
@@ -231,9 +228,8 @@ export function AppLayout({ children, activeTab = 'Overview' }: AppLayoutProps) 
       </main>
 
       {/* Fixed help button */}
-      <button className="fixed bottom-6 right-6 flex gap-2 items-center h-9 px-3 rounded-lg bg-[var(--slate-600)] text-[color:var(--slate-50)] shadow-[var(--shadow-floating)] hover:brightness-110 transition-all duration-150">
+      <button className="fixed bottom-6 right-6 flex items-center justify-center size-9 rounded-lg bg-[var(--slate-600)] text-[color:var(--slate-50)] shadow-[var(--shadow-floating)] hover:brightness-110 transition-all duration-150" aria-label="Help">
         <HelpCircle className="size-5" />
-        <span className="text-[length:var(--text-sm)] font-medium">Help</span>
       </button>
     </div>
   )

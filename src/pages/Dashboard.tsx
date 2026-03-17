@@ -65,7 +65,7 @@ export function Dashboard() {
       <div className="w-full max-w-[var(--content-max-width)] flex flex-col gap-12 sm:gap-16 lg:gap-24">
         {/* Activity Summary */}
         <section className="flex flex-col gap-8">
-          <h2 className="text-[length:var(--text-h4)] font-normal leading-tight tracking-[0.24px] text-[color:var(--slate-200)]" style={{ fontFamily: 'var(--font-switzer)' }}>
+          <h2 className="text-[length:var(--text-h6)] font-normal leading-tight tracking-[0.24px] text-[color:var(--slate-400)]" style={{ fontFamily: 'var(--font-switzer)' }}>
             Activity Summary
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
@@ -106,7 +106,7 @@ export function Dashboard() {
 
         {/* Favourites */}
         <section className="flex flex-col gap-8">
-          <h2 className="text-[length:var(--text-h4)] font-normal leading-tight tracking-[0.24px] text-[color:var(--slate-200)]" style={{ fontFamily: 'var(--font-switzer)' }}>
+          <h2 className="text-[length:var(--text-h6)] font-normal leading-tight tracking-[0.24px] text-[color:var(--slate-400)]" style={{ fontFamily: 'var(--font-switzer)' }}>
             Favourites
           </h2>
           <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--slate-800)] shadow-[var(--shadow-card-default)] pt-8 pb-8 px-4 sm:pt-12 sm:pb-12 sm:px-6 flex flex-col gap-16 sm:gap-28">
