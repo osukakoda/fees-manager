@@ -220,8 +220,8 @@ export function AppLayout({ children, activeTab = 'Overview' }: AppLayoutProps) 
             )
           })}
           <button className="ml-auto shrink-0 flex items-center gap-1.5 px-3 py-1.5 mb-3 rounded-md bg-[var(--slate-700)] text-[length:var(--text-xs)] font-medium text-[color:var(--slate-50)] hover:bg-[var(--slate-600)] transition-colors duration-150">
+            <Globe className="size-3.5" />
             View Site
-            <ExternalLink className="size-3.5" />
           </button>
         </nav>
       </header>
