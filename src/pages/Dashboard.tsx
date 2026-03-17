@@ -140,7 +140,7 @@ export function Dashboard() {
             </div>
 
             {/* Content */}
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-8">
 
               {/* Row 1: title + description on left, filters on right */}
               <div className="flex items-end justify-between gap-4">
