@@ -154,10 +154,6 @@ export function AppLayout({ children, activeTab = 'Overview' }: AppLayoutProps) 
               <span className="text-[length:var(--text-xs)] font-medium text-[color:var(--slate-300)]">⌘F</span>
             </div>
             <div className="flex gap-2 items-center">
-              <button className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[var(--slate-700)] text-[length:var(--text-xs)] font-medium text-[color:var(--slate-50)] hover:bg-[var(--slate-600)] transition-colors duration-150 shrink-0">
-                <span className="hidden sm:inline">View Site</span>
-                <ExternalLink className="size-3.5" />
-              </button>
               <button
                 onClick={toggleTheme}
                 aria-label="Toggle theme"
@@ -176,14 +172,14 @@ export function AppLayout({ children, activeTab = 'Overview' }: AppLayoutProps) 
               <img
                 src="https://randomuser.me/api/portraits/men/44.jpg"
                 alt="User avatar"
-                className="size-12 sm:size-9 rounded-full object-cover object-top shrink-0"
+                className="size-10 sm:size-8 rounded-full object-cover object-top shrink-0"
               />
             </div>
           </div>
         </div>
 
         {/* Nav tabs */}
-        <nav className="flex gap-6 lg:gap-8 items-center w-full overflow-x-auto scrollbar-hide pr-4">
+        <nav className="flex gap-6 lg:gap-8 items-center w-full overflow-x-auto scrollbar-hide">
           {NAV_TABS.map(({ label, to }) => {
             // Visibility: overflow tabs are hidden until their breakpoint
             const visClass =
@@ -223,6 +219,10 @@ export function AppLayout({ children, activeTab = 'Overview' }: AppLayoutProps) 
               <button key={label} className={classes}>{label}</button>
             )
           })}
+          <button className="ml-auto shrink-0 flex items-center gap-1.5 px-3 py-1.5 mb-3 rounded-md bg-[var(--slate-700)] text-[length:var(--text-xs)] font-medium text-[color:var(--slate-50)] hover:bg-[var(--slate-600)] transition-colors duration-150">
+            View Site
+            <ExternalLink className="size-3.5" />
+          </button>
         </nav>
       </header>
 
