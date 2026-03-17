@@ -62,7 +62,7 @@ export function Dashboard() {
 
   return (
     <AppLayout activeTab="Overview">
-      <div className="w-full max-w-[var(--content-max-width)] flex flex-col gap-16 sm:gap-20 lg:gap-28">
+      <div className="w-full max-w-[var(--content-max-width)] flex flex-col gap-32 sm:gap-40 lg:gap-56">
         {/* Activity Summary */}
         <section className="flex flex-col gap-4">
           <h2 className="text-[length:var(--text-h6)] font-normal leading-tight tracking-[0.24px] text-[color:var(--slate-400)]" style={{ fontFamily: 'var(--font-switzer)' }}>
