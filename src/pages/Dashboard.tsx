@@ -142,21 +142,33 @@ export function Dashboard() {
             {/* Content */}
             <div className="flex flex-col gap-6">
 
-              {/* Title — above both columns */}
-              <div className="flex flex-col gap-2" style={{ fontFamily: 'var(--font-dm)' }}>
-                <h3 className="text-[length:var(--text-h6)] font-medium leading-snug text-[color:var(--slate-50)]">
-                  Content
-                </h3>
-                <p className="text-[length:var(--text-sm)] font-medium leading-snug text-[color:var(--slate-300)]">
-                  Latest updates and changes
-                </p>
+              {/* Row 1: title + description on left, filters on right */}
+              <div className="flex items-end justify-between gap-4">
+                <div className="flex flex-col gap-2" style={{ fontFamily: 'var(--font-dm)' }}>
+                  <h3 className="text-[length:var(--text-h6)] font-medium leading-snug text-[color:var(--slate-50)]">
+                    Content
+                  </h3>
+                  <p className="text-[length:var(--text-sm)] font-medium leading-snug text-[color:var(--slate-300)]">
+                    Latest updates and changes
+                  </p>
+                </div>
+                <div className="flex gap-2 sm:gap-4 shrink-0">
+                  <button className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg border border-[var(--border-faint)] text-[length:var(--text-xs)] sm:text-[length:var(--text-sm)] font-medium text-[color:var(--slate-300)] hover:bg-[var(--surface-hover)] hover:text-[color:var(--slate-50)] transition-colors duration-150">
+                    <Filter className="size-3.5 sm:size-4" />
+                    Sort by date
+                  </button>
+                  <button className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg border border-[var(--border-faint)] text-[length:var(--text-xs)] sm:text-[length:var(--text-sm)] font-medium text-[color:var(--slate-300)] hover:bg-[var(--surface-hover)] hover:text-[color:var(--slate-50)] transition-colors duration-150">
+                    <Calendar className="size-3.5 sm:size-4" />
+                    Select date range
+                  </button>
+                </div>
               </div>
 
+              {/* Row 2: sidebar tabs on left, table on right */}
               <div className="flex flex-col lg:flex-row gap-6 lg:gap-[88px]">
 
-                {/* Desktop sidebar tabs — vertical list, only at lg+.
-                    pt-14 skips the filter row so tabs align with the table. */}
-                <div className="hidden lg:flex lg:flex-col gap-6 pt-14 shrink-0">
+                {/* Desktop sidebar tabs — vertical list, only at lg+ */}
+                <div className="hidden lg:flex lg:flex-col gap-6 shrink-0">
                   {CONTENT_TABS.map((tab) => (
                     <button
                       key={tab}
@@ -174,17 +186,6 @@ export function Dashboard() {
 
                 {/* Table area */}
                 <div className="flex-1 min-w-0 flex flex-col gap-4 sm:gap-6">
-                  {/* Filters */}
-                  <div className="flex gap-2 sm:gap-4 justify-end">
-                    <button className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg border border-[var(--border-faint)] text-[length:var(--text-xs)] sm:text-[length:var(--text-sm)] font-medium text-[color:var(--slate-300)] hover:bg-[var(--surface-hover)] hover:text-[color:var(--slate-50)] transition-colors duration-150">
-                      <Filter className="size-3.5 sm:size-4" />
-                      Sort by date
-                    </button>
-                    <button className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg border border-[var(--border-faint)] text-[length:var(--text-xs)] sm:text-[length:var(--text-sm)] font-medium text-[color:var(--slate-300)] hover:bg-[var(--surface-hover)] hover:text-[color:var(--slate-50)] transition-colors duration-150">
-                      <Calendar className="size-3.5 sm:size-4" />
-                      Select date range
-                    </button>
-                  </div>
 
                   {/* Mobile tab selector — dropdown, sits just above the table */}
                   <div className="lg:hidden">
