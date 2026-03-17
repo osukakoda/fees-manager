@@ -142,7 +142,7 @@ export function AppLayout({ children, activeTab = 'Overview' }: AppLayoutProps) 
               <Home className="size-4 shrink-0" />
               <span className="truncate">Our council</span>
             </button>
-            <button className="hidden sm:flex gap-2 items-center px-2 py-1 rounded-md bg-[var(--slate-700)] text-[length:var(--text-xs)] font-medium text-[color:var(--slate-50)] hover:bg-[var(--slate-600)] transition-colors duration-150">
+            <button className="hidden lg:flex gap-2 items-center px-2 py-1 rounded-md bg-[var(--slate-700)] text-[length:var(--text-xs)] font-medium text-[color:var(--slate-50)] hover:bg-[var(--slate-600)] transition-colors duration-150">
               View Site
               <ExternalLink className="size-4" />
             </button>
@@ -171,15 +171,17 @@ export function AppLayout({ children, activeTab = 'Overview' }: AppLayoutProps) 
               <button className="flex items-center justify-center size-12 sm:size-9 rounded-full border border-[var(--border-subtle)] bg-[var(--slate-800)] p-3 sm:p-2 hover:bg-[var(--surface-hover-icon)] transition-colors duration-150">
                 <BookOpen className="size-5 text-[color:var(--slate-300)]" />
               </button>
-              <div className="size-12 sm:size-9 rounded-full bg-gradient-to-br from-[var(--avatar-from)] to-[var(--avatar-to)] flex items-center justify-center text-[length:var(--text-sm)] sm:text-[length:var(--text-xs)] font-medium text-[color:var(--avatar-text)]">
-                OA
-              </div>
+              <img
+                src="/avatar.jpg"
+                alt="User avatar"
+                className="size-12 sm:size-9 rounded-full object-cover object-top shrink-0"
+              />
             </div>
           </div>
         </div>
 
         {/* Nav tabs */}
-        <nav className="flex gap-3 sm:gap-6 lg:gap-8 items-center w-full overflow-x-auto scrollbar-hide pr-4">
+        <nav className="flex gap-6 lg:gap-8 items-center w-full overflow-x-auto scrollbar-hide pr-4">
           {NAV_TABS.map(({ label, to }) => {
             // Visibility: overflow tabs are hidden until their breakpoint
             const visClass =
