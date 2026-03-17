@@ -2,7 +2,6 @@ import { type ReactNode, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import {
   ChevronDown,
-  ExternalLink,
   Search,
   Bell,
   BookOpen,
