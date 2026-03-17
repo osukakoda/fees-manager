@@ -141,6 +141,8 @@ export function Dashboard() {
 
             {/* Content */}
             <div className="flex flex-col gap-6">
+
+              {/* Title — above both columns */}
               <div className="flex flex-col gap-2" style={{ fontFamily: 'var(--font-dm)' }}>
                 <h3 className="text-[length:var(--text-h6)] font-medium leading-snug text-[color:var(--slate-50)]">
                   Content
@@ -152,41 +154,9 @@ export function Dashboard() {
 
               <div className="flex flex-col lg:flex-row gap-6 lg:gap-[88px]">
 
-                {/* Mobile tab selector — dropdown, only below lg */}
-                <div className="lg:hidden">
-                  <DropdownMenu modal={false}>
-                    <DropdownMenuTrigger asChild>
-                      <button className="flex items-center gap-2 px-4 py-2 rounded-lg border border-[var(--border-faint)] text-[length:var(--text-sm)] font-medium text-[color:var(--slate-50)] hover:bg-[var(--surface-hover)] transition-colors duration-150">
-                        {activeContentTab}
-                        <ChevronDown className="size-4 shrink-0 transition-transform duration-200 [[data-state=open]>&]:rotate-180" />
-                      </button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent
-                      align="start"
-                      sideOffset={8}
-                      className="w-56 rounded-xl border-[var(--border-subtle)] bg-[var(--slate-800)] p-2 shadow-[var(--shadow-dropdown)]"
-                    >
-                      <div className="flex flex-col gap-0.5">
-                        {CONTENT_TABS.map((tab) => (
-                          <DropdownMenuItem
-                            key={tab}
-                            onSelect={() => setActiveContentTab(tab)}
-                            className={`rounded-lg px-3 py-2.5 text-[length:var(--text-sm)] font-medium cursor-pointer transition-colors duration-150 ${
-                              tab === activeContentTab
-                                ? 'bg-[var(--brand)] text-white'
-                                : 'text-[color:var(--slate-300)] focus:bg-[var(--surface-hover-row)] focus:text-[color:var(--slate-50)]'
-                            }`}
-                          >
-                            {tab}
-                          </DropdownMenuItem>
-                        ))}
-                      </div>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                </div>
-
-                {/* Desktop sidebar tabs — vertical list, only at lg+ */}
-                <div className="hidden lg:flex lg:flex-col gap-6 pt-[77px] shrink-0">
+                {/* Desktop sidebar tabs — vertical list, only at lg+.
+                    pt-14 skips the filter row so tabs align with the table. */}
+                <div className="hidden lg:flex lg:flex-col gap-6 pt-14 shrink-0">
                   {CONTENT_TABS.map((tab) => (
                     <button
                       key={tab}
@@ -214,6 +184,39 @@ export function Dashboard() {
                       <Calendar className="size-3.5 sm:size-4" />
                       Select date range
                     </button>
+                  </div>
+
+                  {/* Mobile tab selector — dropdown, sits just above the table */}
+                  <div className="lg:hidden">
+                    <DropdownMenu modal={false}>
+                      <DropdownMenuTrigger asChild>
+                        <button className="flex items-center gap-2 px-4 py-2 rounded-lg border border-[var(--border-faint)] text-[length:var(--text-sm)] font-medium text-[color:var(--slate-50)] hover:bg-[var(--surface-hover)] transition-colors duration-150">
+                          {activeContentTab}
+                          <ChevronDown className="size-4 shrink-0 transition-transform duration-200 [[data-state=open]>&]:rotate-180" />
+                        </button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent
+                        align="start"
+                        sideOffset={8}
+                        className="w-56 rounded-xl border-[var(--border-subtle)] bg-[var(--slate-800)] p-2 shadow-[var(--shadow-dropdown)]"
+                      >
+                        <div className="flex flex-col gap-0.5">
+                          {CONTENT_TABS.map((tab) => (
+                            <DropdownMenuItem
+                              key={tab}
+                              onSelect={() => setActiveContentTab(tab)}
+                              className={`rounded-lg px-3 py-2.5 text-[length:var(--text-sm)] font-medium cursor-pointer transition-colors duration-150 ${
+                                tab === activeContentTab
+                                  ? 'bg-[var(--brand)] text-white'
+                                  : 'text-[color:var(--slate-300)] focus:bg-[var(--surface-hover-row)] focus:text-[color:var(--slate-50)]'
+                              }`}
+                            >
+                              {tab}
+                            </DropdownMenuItem>
+                          ))}
+                        </div>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
                   </div>
 
                   {/* Data table */}
