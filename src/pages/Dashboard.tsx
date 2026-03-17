@@ -109,7 +109,7 @@ export function Dashboard() {
           <h2 className="text-[length:var(--text-h4)] font-normal leading-tight tracking-[0.24px] text-[color:var(--slate-200)]" style={{ fontFamily: 'var(--font-switzer)' }}>
             Favourites
           </h2>
-          <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--slate-800)] shadow-[var(--shadow-card-default)] pt-4 pb-8 px-4 sm:pt-6 sm:pb-12 sm:px-6 flex flex-col gap-16 sm:gap-28">
+          <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--slate-800)] shadow-[var(--shadow-card-default)] pt-8 pb-8 px-4 sm:pt-12 sm:pb-12 sm:px-6 flex flex-col gap-16 sm:gap-28">
             {/* Shortcuts */}
             <div className="flex flex-col gap-8">
               <div className="flex items-end justify-between">
