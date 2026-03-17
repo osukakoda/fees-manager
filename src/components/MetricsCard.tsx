@@ -41,7 +41,7 @@ export function MetricsCard({
         <div className="flex flex-col gap-4 flex-1">
           <p
             className={cn(
-              'text-[length:var(--text-h3)] sm:text-[length:var(--text-h2)] lg:text-[length:var(--text-h1)] font-semibold leading-none text-[color:var(--slate-50)]',
+              'text-[length:var(--text-h2)] sm:text-[length:var(--text-h1)] font-light leading-none text-[color:var(--slate-50)]',
               valueClassName
             )}
             style={{ fontFamily: 'var(--font-switzer)' }}
