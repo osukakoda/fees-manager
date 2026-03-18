@@ -1,14 +1,15 @@
 import { Info, Download, Upload, Plus } from 'lucide-react'
 import { AppLayout } from '@/components/AppLayout'
+import { PageHeader } from '@/components/PageHeader'
 
 export function FeesManager() {
   return (
     <AppLayout activeTab="More">
       <div className="w-full max-w-[var(--content-max-width)] flex flex-col gap-6 sm:gap-8">
-        {/* Page title */}
-        <h2 className="text-[length:var(--text-h4)] font-normal leading-tight tracking-[0.24px] text-[color:var(--slate-100)]" style={{ fontFamily: 'var(--font-switzer)' }}>
-          Fees Manager
-        </h2>
+        <PageHeader
+          title="Fees Manager"
+          description="Upload or manage council fees across your sites"
+        />
 
         {/* Upload in bulk card */}
         <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--slate-800)] shadow-[var(--shadow-card-default)] pt-6 pb-8 px-4 sm:pt-9 sm:pb-12 sm:px-6 flex flex-col gap-6 sm:gap-8">

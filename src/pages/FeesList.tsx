@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ChevronLeft } from 'lucide-react'
 import { EditFeeDialog } from '@/components/EditFeeDialog'
 import { DeleteFeeDialog } from '@/components/DeleteFeeDialog'
 import { useFeesStore } from '@/store/store'
 import { AppLayout } from '@/components/AppLayout'
+import { PageHeader } from '@/components/PageHeader'
 
 function StatusBadge({ status }: { status: 'new' | 'updated' | 'error' }) {
   const styles = {
@@ -34,25 +34,14 @@ export function FeesList() {
   return (
     <AppLayout activeTab="More">
       <div className="w-full max-w-[var(--content-max-width)] flex flex-col gap-6 sm:gap-8">
-        {/* Page header */}
-        <div className="flex flex-col gap-2">
-          <Link
-            to="/fees-manager"
-            className="flex items-center gap-1.5 w-fit text-[length:var(--text-sm)] font-medium text-[color:var(--brand-light)] hover:text-[color:var(--brand)] transition-colors duration-150"
-          >
-            <ChevronLeft className="size-4" />
-            Back to Fees Manager
-          </Link>
-          <h2
-            className="text-[length:var(--text-h4)] font-normal leading-tight tracking-[0.24px] text-[color:var(--slate-100)]"
-            style={{ fontFamily: 'var(--font-switzer)' }}
-          >
-            All fees
-          </h2>
-          <p className="text-[length:var(--text-sm)] font-medium text-[color:var(--slate-300)]">
-            View and manage all fees across updates.
-          </p>
-        </div>
+        <PageHeader
+          title="All Fees"
+          description="View and manage all fees across updates"
+          breadcrumbs={[
+            { label: 'Fees Manager', to: '/fees-manager' },
+            { label: 'All Fees' },
+          ]}
+        />
 
         {/* Fees table card */}
         <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--slate-800)] shadow-[var(--shadow-card-default)] flex flex-col">
