@@ -292,7 +292,7 @@ export function AppLayout({ children, activeTab = 'Overview' }: AppLayoutProps) 
   const { theme } = useThemeStore()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [collapsed, setCollapsed] = useState(() => {
-    const saved = localStorage.getItem('sidebar-collapsed')
+    const saved = localStorage.getItem('sidebar-collapsed-v2')
     if (saved !== null) return saved === 'true'
     return false // default: always expanded on sm+
   })
@@ -304,7 +304,7 @@ export function AppLayout({ children, activeTab = 'Overview' }: AppLayoutProps) 
   function toggleCollapsed() {
     setCollapsed(prev => {
       const next = !prev
-      localStorage.setItem('sidebar-collapsed', String(next))
+      localStorage.setItem('sidebar-collapsed-v2', String(next))
       return next
     })
   }
