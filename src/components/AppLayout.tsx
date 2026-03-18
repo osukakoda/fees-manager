@@ -294,7 +294,7 @@ export function AppLayout({ children, activeTab = 'Overview' }: AppLayoutProps) 
   const [collapsed, setCollapsed] = useState(() => {
     const saved = localStorage.getItem('sidebar-collapsed')
     if (saved !== null) return saved === 'true'
-    return window.innerWidth < 1024 // default: collapsed on tablet, expanded on desktop
+    return false // default: always expanded on sm+
   })
 
   useEffect(() => {
