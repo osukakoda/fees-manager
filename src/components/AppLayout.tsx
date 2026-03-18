@@ -382,7 +382,7 @@ export function AppLayout({ children, activeTab = 'Overview' }: AppLayoutProps) 
 
       {/* Main content */}
       <main
-        className={`flex-1 ml-0 ${mainMargin} pt-12 sm:pt-0 flex flex-col items-center px-4 sm:px-6 lg:px-8 py-10 sm:py-14 min-w-0 transition-all duration-200`}
+        className={`flex-1 ml-0 ${mainMargin} pt-12 sm:pt-16 pb-16 sm:pb-24 flex flex-col items-center px-4 sm:px-6 lg:px-8 min-w-0 transition-all duration-200`}
       >
         {children}
       </main>
