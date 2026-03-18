@@ -142,8 +142,8 @@
   --slate-900: #f0f4f8;
 
   /* Adaptive surfaces */
-  --border-subtle: rgba(0, 0, 0, 0.09);
-  --border-faint:  rgba(0, 0, 0, 0.06);
+  --border-subtle: rgba(0, 0, 0, 0.12);
+  --border-faint:  rgba(0, 0, 0, 0.10);
   --surface-hover: rgba(0, 0, 0, 0.04);
   --surface-hover-icon: rgba(0, 0, 0, 0.05);
   --surface-hover-row: rgba(0, 0, 0, 0.03);

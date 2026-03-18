@@ -196,8 +196,8 @@ function SidebarContents({
           {/* More Tools — hidden when collapsed */}
           {!collapsed && (
             <>
-              <p className="mt-4 mb-1 px-2 text-[length:var(--text-xs)] font-medium uppercase tracking-wider text-[color:var(--slate-400)]">
-                More Tools
+              <p className="mt-4 mb-1 px-2 text-[length:var(--text-xs)] font-medium text-[color:var(--slate-400)]">
+                More tools
               </p>
               {MORE_TOOLS_ITEMS.map(({ icon, label, to }) => (
                 <NavItem
@@ -219,7 +219,7 @@ function SidebarContents({
           {collapsed ? (
             <Tooltip>
               <TooltipTrigger asChild>
-                <button className="flex items-center justify-center w-full py-2 rounded-md text-[color:var(--brand-light)] border border-[var(--brand)] hover:bg-[rgba(29,111,188,0.08)] transition-colors duration-150">
+                <button className="flex items-center justify-center w-full py-2 rounded-md text-[color:var(--slate-400)] hover:bg-[var(--surface-hover)] hover:text-[color:var(--slate-50)] transition-colors duration-150">
                   <Globe className="size-4" />
                 </button>
               </TooltipTrigger>
@@ -228,7 +228,7 @@ function SidebarContents({
               </TooltipContent>
             </Tooltip>
           ) : (
-            <button className="flex items-center gap-3 w-full px-2 py-2 rounded-md text-[length:var(--text-sm)] font-medium text-[color:var(--brand-light)] border border-[var(--brand)] hover:bg-[rgba(29,111,188,0.08)] transition-colors duration-150">
+            <button className="flex items-center gap-3 w-full px-2 py-2 rounded-md text-[length:var(--text-sm)] font-medium text-[color:var(--slate-400)] hover:bg-[var(--surface-hover)] hover:text-[color:var(--slate-50)] transition-colors duration-150">
               <Globe className="size-4 shrink-0" />
               View Site
             </button>
@@ -389,7 +389,7 @@ export function AppLayout({ children, activeTab = 'Overview' }: AppLayoutProps) 
 
       {/* Fixed help button */}
       <button
-        className="fixed bottom-6 right-6 flex items-center justify-center size-9 rounded-full bg-[var(--slate-600)] text-[color:var(--slate-50)] shadow-[var(--shadow-floating)] hover:brightness-110 transition-all duration-150"
+        className="fixed bottom-10 right-6 flex items-center justify-center size-9 rounded-full bg-[var(--slate-600)] text-[color:var(--slate-50)] shadow-[var(--shadow-floating)] hover:brightness-110 transition-all duration-150"
         aria-label="Help"
       >
         <HelpCircle className="size-5" />

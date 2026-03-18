@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { ArrowUp, ArrowDown } from 'lucide-react'
 import { EditFeeDialog } from '@/components/EditFeeDialog'
 import { DeleteFeeDialog } from '@/components/DeleteFeeDialog'
 import { useFeesStore } from '@/store/store'
@@ -85,7 +86,11 @@ export function FeesList() {
                       {fee.newAmount}
                     </td>
                     <td className="px-4 sm:px-6 py-3 text-[length:var(--text-sm)] text-right">
-                      <span className={fee.change >= 0 ? 'text-[color:var(--success)]' : 'text-[color:var(--destructive-figma)]'}>
+                      <span className={`inline-flex items-center justify-end gap-0.5 ${fee.change >= 0 ? 'text-[color:var(--success)]' : 'text-[color:var(--destructive-figma)]'}`}>
+                        {fee.change >= 0
+                          ? <ArrowUp className="size-3 shrink-0" />
+                          : <ArrowDown className="size-3 shrink-0" />
+                        }
                         {fee.change >= 0 ? '+' : ''}{fee.change}
                       </span>
                     </td>

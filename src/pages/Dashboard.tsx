@@ -63,8 +63,10 @@ export function Dashboard() {
 
   return (
     <AppLayout activeTab="Overview">
-      <div className="w-full max-w-[var(--content-max-width)] flex flex-col gap-32 sm:gap-40 lg:gap-56">
-        <PageHeader title="Overview" description="Your council at a glance" />
+      <div className="w-full max-w-[var(--content-max-width)] flex flex-col gap-16 sm:gap-20 lg:gap-24">
+        <div className="mb-2">
+          <PageHeader title="Overview" description="Your council at a glance" />
+        </div>
         {/* Activity Summary */}
         <section className="flex flex-col gap-4">
           <h2 className="text-[length:var(--text-h6)] font-normal leading-tight tracking-[0.24px] text-[color:var(--slate-400)]" style={{ fontFamily: 'var(--font-switzer)' }}>
@@ -177,8 +179,8 @@ export function Dashboard() {
                       onClick={() => setActiveContentTab(tab)}
                       className={`text-left text-[length:var(--text-sm)] whitespace-nowrap transition-colors duration-150 ${
                         tab === activeContentTab
-                          ? 'border-b-4 border-[var(--brand)] pb-3 text-[color:var(--slate-50)] font-medium'
-                          : 'text-[color:var(--slate-100)] font-normal hover:text-[color:var(--slate-50)]'
+                          ? 'border-l-2 border-[var(--brand)] pl-2 text-[color:var(--slate-50)] font-medium'
+                          : 'text-[color:var(--slate-400)] font-normal hover:text-[color:var(--slate-50)] pl-2.5'
                       }`}
                     >
                       {tab}
@@ -246,7 +248,7 @@ export function Dashboard() {
 
                   {/* Pagination */}
                   <div className="flex flex-wrap items-center justify-between gap-3">
-                    <span className="text-[length:var(--text-sm)] text-[color:var(--slate-300)]">5 of 18 pages</span>
+                    <span className="text-[length:var(--text-sm)] text-[color:var(--slate-300)]">Showing 1–5 of 18</span>
                     <div className="flex gap-2 sm:gap-4">
                       <button className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg border border-[var(--border-faint)] text-[length:var(--text-xs)] sm:text-[length:var(--text-sm)] font-medium text-[color:var(--slate-300)] hover:bg-[var(--surface-hover)] hover:text-[color:var(--slate-50)] transition-colors duration-150">
                         <ChevronLeft className="size-3.5 sm:size-4" />
